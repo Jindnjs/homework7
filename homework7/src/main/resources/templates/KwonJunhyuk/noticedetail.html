@@ -1,0 +1,27 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+
+  			<h4 th:text="${notice.id}"></h4><br>
+            <h4 th:text="${notice.title}"></h4><br>
+            <h6 th:text="${notice.content}"></h6><br>
+            <h6 th:text="${#temporals.format(notice.date, 'yyyy-MM-dd HH:mm')}"></h6><br>
+<br><br>
+
+<h5 th:text="|${#lists.size(notice.commentList)}개의 답변이 있습니다.|"></h5>
+<div>
+    <ul>
+        <li th:each="comment : ${notice.commentList}" th:text="${comment.content}"></li>
+    </ul>
+</div>
+
+<a th:href="@{|/kwon/update/${notice.id}|}">공지 수정</a>
+<a th:href="@{|/kwon/delete/${notice.id}|}">공지 삭제</a>
+
+
+<form th:action="@{|/kwon/comment/create/${notice.id}|}" method="post">
+    <textarea name="content" id="content" rows="5"></textarea>
+    <input type="submit" value="답변등록">
+    
+</form>
+</div>
+</html>
