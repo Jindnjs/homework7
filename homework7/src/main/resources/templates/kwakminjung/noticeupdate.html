@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/kwak/update" method="post">
+	<input type="hidden" th:value="${notice.id}" name="id">
+	<input tuype="hidden" th:value="${notice.date}" name="date">
+	<p>제목: <input th:value="${notice.title}" name="title"> 
+	<p>내용: <input th:value="${notice.content}" name="content">
+	<p><input type="submit" value="수정">
+
+</form>
+</body>
+</html>
