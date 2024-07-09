@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table class="table">
+	<thead>
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성일시</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="notion, loop:${notionList}">
+			<td th:text="${loop.count}"></td>
+			<td>
+				<a th:href="@{|/notion/detail/${notion.id}|}" th:text="${notion.title}"></a>
+			</td>
+			<td th:text="${notion.date}"></td>
+	</tbody>
+</table>
+<a th:href="@{/notion/create}" class="btn">노션 작성</a>
+</body>
+</html>

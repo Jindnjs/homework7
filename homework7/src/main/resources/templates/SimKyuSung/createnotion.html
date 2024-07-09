@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/notion/create}" method="post">
+<label>제목 : </label>
+<input type="text" name="title"><br>
+<label>내용 : </label>
+<input type="text" name="content">
+<input type="submit" value="저장하기">
+</form>
+</body>
+</html>
