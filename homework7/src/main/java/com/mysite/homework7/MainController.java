@@ -10,28 +10,12 @@ public class MainController {
 	public String index() {
 		return "index";
 	}
-	@GetMapping("/yoo")
-	public String yoo() {
+	@GetMapping("/index.html")
+	public String index1() {
 		return "index";
 	}
-	@GetMapping("/kim")
-	public String kim() {
-		return "index";
-	}
-	@GetMapping("/kwak")
-	public String kwak() {
-		return "index";
-	}
-	@GetMapping("/kwon")
-	public String kwon() {
-		return "index";
-	}
-	@GetMapping("/park")
-	public String park() {
-		return "index";
-	}
-	@GetMapping("/sim")
-	public String sim() {
+	@GetMapping("/index")
+	public String index2() {
 		return "index";
 	}
 }
