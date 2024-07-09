@@ -45,7 +45,7 @@ public class NoticeController1 {
 		ns.deleteNotice(id);
 		return "redirect:/yoo";
 	}
-	@GetMapping("/notice/detail/update/{id}")
+	@GetMapping("/update/{id}")
 	public String updateNotice(Model model,@PathVariable("id") Integer id) {
 		model.addAttribute("notice",ns.getnoticeByid(id));
 		return "yoojinwon/noticefix1";

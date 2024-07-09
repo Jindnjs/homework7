@@ -1,7 +1,7 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
-	<a href="/yoo" class = "btn btn-primary my-3">게시판</a>
-	<a th:href="@{|update/${notice.id}|}" class = "btn btn-primary my-3">수정</a>
+	<a href="/yoo" class = "btn btn-secondary my-3">게시판</a>
+	<a th:href="@{|/update/${notice.id}|}" class = "btn btn-success my-3">수정</a>
 	<a th:href="@{|delete/${notice.id}|}" class = "btn btn-danger my-3">삭제</a>
     <!-- 질문 -->
     <h2 class="border-bottom py-2" th:text="${notice.title}"></h2>
@@ -25,7 +25,11 @@
             <div class="d-flex justify-content-end">
                 <div class="badge bg-light text-dark p-2 text-start">
                     <div th:text="${#temporals.format(comment.date, 'yyyy-MM-dd HH:mm')}"></div>
-                </div><a th:href="@{|/comment/delete/${notice.id}/${comment.id}|}" class="btn btn-danger">삭제</a>
+                    
+                </div>
+                <a th:href="@{|/comment/update/${comment.id}|}" class="ms-2 btn btn-success">수정</a>
+                <a th:href="@{|/comment/delete/${notice.id}/${comment.id}|}" class="ms-2 btn btn-danger">삭제</a>
+                	  
             </div>
         </div>
     </div>
