@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,9 @@ public class Notice3 {
 	private String content;
 	
 	private LocalDateTime date;
+	
+	@ElementCollection
+	private List<String> imagelist;
 	
 	@OneToMany(mappedBy="notice", cascade=CascadeType.REMOVE)
 	private List<Comment3> commentlist;
