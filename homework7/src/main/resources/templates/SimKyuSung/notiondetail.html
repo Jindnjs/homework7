@@ -17,7 +17,7 @@
 		<li th:each="comment:${notion.commentList}" th:text="${comment.content}"></li>
 	</ul>
 </div>
-<form th:action="@{|/comment/create/${notion.id}|}" method="post">
+<form th:action="@{|/comment6/create/${notion.id}|}" method="post">
 	<textarea name="content" id="content" rows="11"></textarea>
 	<input type="submit" value="답변등록">
 </form>

@@ -25,7 +25,7 @@ public class NotionController6 {
 		return "SimKyuSung/createnotion";
 	}
 	
-	@PostMapping("/notion/create")
+	@PostMapping("/notion6/create")
 	public String create(@ModelAttribute Notion6 notion) {
 		notionService.create(notion);
 		return "redirect:/notion/list";
@@ -49,7 +49,7 @@ public class NotionController6 {
 		return "SimKyuSung/notionupdate";
 	}
 	
-	@PostMapping("/notion/update")
+	@PostMapping("/notion6/update")
 	public String update(@ModelAttribute Notion6 notion) {
 		this.notionService.update(notion);
 		return "redirect:/notion/list";

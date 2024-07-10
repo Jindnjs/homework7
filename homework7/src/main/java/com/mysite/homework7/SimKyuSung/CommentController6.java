@@ -15,7 +15,7 @@ public class CommentController6 {
 	@Autowired
 	private NotionService6 notionService;
 
-	@PostMapping("/comment/create/{id}")
+	@PostMapping("/comment6/create/{id}")
 	public String create(@PathVariable("id")Integer id,@RequestParam("content")String content) {
 		Notion6 notion=this.notionService.getNotion(id);
 		this.commentService.create(notion, content);
