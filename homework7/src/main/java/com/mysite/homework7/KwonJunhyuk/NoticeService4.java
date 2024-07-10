@@ -1,12 +1,15 @@
 package com.mysite.homework7.KwonJunhyuk;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.mysite.homework7.kwakminjung.Notice3;
+import com.mysite.homework7.S3Service;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class NoticeService4 {
 	
 	private final NoticeRepository4 noticeRepository;
-	
+	private final S3Service s3Service;
 	
 	public List<Notice4> readlist() {
 		return noticeRepository.findAll();
@@ -45,4 +48,18 @@ public class NoticeService4 {
 		Optional<Notice4> notice = this.noticeRepository.findById(id);
 		return notice.get();
 	}
+	
+	public void create(Notice4 notice, MultipartFile file1) throws IOException{
+		
+		UUID uuid = UUID.randomUUID();
+		String fileName1 = uuid + "_" + file1.getOriginalFilename();
+		
+		s3Service.uploadFile(file1, fileName1);
+		
+		notice.setImage1(fileName1);
+		
+		notice.setDate(LocalDateTime.now());
+		this.noticeRepository.save(notice);
+	}
+		
 }

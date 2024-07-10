@@ -25,6 +25,8 @@ public class Notice4 {
 	
 	private LocalDateTime date;
 	
+	private String image1;
+	
 	@OneToMany(mappedBy = "notice", cascade = CascadeType.REMOVE) 
     private List<Comment4> commentList; 
 	

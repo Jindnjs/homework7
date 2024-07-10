@@ -21,6 +21,8 @@ public class Comment4 {
 	
 	private LocalDateTime date;
 	
+	private String image1;
+	
 	@ManyToOne 
     private Notice4 notice;  
 }
