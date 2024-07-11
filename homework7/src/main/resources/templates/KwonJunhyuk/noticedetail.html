@@ -8,21 +8,19 @@
 	<h6 th:text="${notice.content}"></h6>
 	<br>
 	<h6 th:text="${#temporals.format(notice.date, 'yyyy-MM-dd HH:mm')}"></h6>
+	<br> <br> <img th:src="|${downpath}/${notice.image1}|">
 	<br> <br>
-	<br>
-
-	<h5 th:text="|${#lists.size(notice.commentList)}개의 답변이 있습니다.|"></h5>
-	<img th:src="|${downpath}/${notice.image1}|">
 	<div>
 		<ul>
 			<li th:each="comment : ${notice.commentList}"
 				th:text="${comment.content}"></li>
 		</ul>
 	</div>
+	<h5 th:text="|${#lists.size(notice.commentList)}개의 답변이 있습니다.|"></h5>
 
-	<a th:href="@{|/kwon/update/${notice.id}|}">공지 수정</a> <a
-		th:href="@{|/kwon/delete/${notice.id}|}">공지 삭제</a>
-
+	<button><a th:href="@{|/kwon/update/${notice.id}|}">공지 수정</a></button>
+	<a th:href="@{|/kwon/delete/${notice.id}|}">공지 삭제</a>
+	<br><br>
 
 	<div th:each="notice : ${notices}">
 		<img th:src="|${downpath}/${notice.image1}|" height="100px"> <br>
@@ -32,6 +30,7 @@
 	<form th:action="@{|/kwon/comment/create/${notice.id}|}" method="post"
 		enctype="multipart/form-data">
 		<input type="file" name="file" class="form-control">
+		<br>
 		<textarea name="content" id="content" rows="5"></textarea>
 		<input type="submit" value="답변등록">
 
